@@ -106,7 +106,7 @@ function loop() {
                 { host, protocol, path: pathname+search, method: 'GET' },
                 res => {
                     res.on('error', () => logs.save="error")
-                    res.on('end', () => logs.save="done")
+                    res.on('data', () => logs.save="done")
                 }
             )
             req.end()
