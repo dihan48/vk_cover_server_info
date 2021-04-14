@@ -1,0 +1,11 @@
+---
+application:
+  name: "vk-cover-server-info"
+  project: "vk_cover_server_info"
+  organization: "QoveryCommunity"
+routers:
+- name: "main-vk-cover-server-info"
+  routes:
+  - application_name: "vk-cover-server-info"
+    paths:
+    - "/*"
