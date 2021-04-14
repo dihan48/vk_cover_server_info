@@ -1,0 +1,13 @@
+{
+  "name": "vk_cover_server_info",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "canvas": "^2.7.0",
+    "form-data": "^4.0.0",
+    "gamedig": "^3.0.1"
+  }
+}
