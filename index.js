@@ -9,19 +9,16 @@ const group = process.env.vk_group,
     token = process.env.vk_token,
     host = process.env.game_host,
     type = process.env.game_type,
-    port = process.env.query_port,
-    logs = { server: "", img: "", upload: "", save: "" }
+    port = process.env.query_port
+let logs = { date: "", server: "", img: "", upload: "", save: "" }
 
 http.createServer(function(request, response){
-    response.end(`server: ${logs.server}, img: ${logs.img}, upload: ${logs.upload}, save: ${logs.save}`)
+    response.end(`date: ${logs.date}\nserver: ${logs.server}\nimg: ${logs.img}\nupload: ${logs.upload}\nsave: ${logs.save}`)
 }).listen(3000)
 
 function loop() {
     try{
-        logs.server = ""
-        logs.img = ""
-        logs.upload = ""
-        logs.save = ""
+        logs = { date: new Date().toLocaleString("ru", {timeZone: 'Europe/Moscow'}), server: "", img: "", upload: "", save: "" }
         const requestUploadUrl = () => `https://api.vk.com/method/photos.getOwnerCoverPhotoUploadServer?group_id=${group}&crop_x=0&crop_y=0&crop_x2=1590&crop_y2=400&v=5.50&access_token=${token}`
         const saveImageUrl = (data) => `https://api.vk.com/method/photos.saveOwnerCoverPhoto?hash=${data.hash}&photo=${data.photo}&v=5.50&access_token=${token}`
 
