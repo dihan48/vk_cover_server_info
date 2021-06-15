@@ -26,6 +26,7 @@ function loop() {
             logs.server = "on"
             createImage(info)
         }).catch((error) => {
+            console.log(error);
             logs.server = "off"
         })
 
