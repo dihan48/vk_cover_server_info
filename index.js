@@ -3,6 +3,7 @@ const http = require("http")
 const https = require('https')
 const FormData = require('form-data')
 const Gamedig = require('gamedig')
+const unirest = require('unirest')
 const { registerFont, createCanvas, loadImage } = require('canvas')
 
 const group = process.env.vk_group,
@@ -22,13 +23,18 @@ function loop() {
         const requestUploadUrl = () => `https://api.vk.com/method/photos.getOwnerCoverPhotoUploadServer?group_id=${group}&crop_x=0&crop_y=0&crop_x2=1590&crop_y2=400&v=5.50&access_token=${token}`
         const saveImageUrl = (data) => `https://api.vk.com/method/photos.saveOwnerCoverPhoto?hash=${data.hash}&photo=${data.photo}&v=5.50&access_token=${token}`
 
-        Gamedig.query({ type, host, port }).then((info) => {
-            logs.server = "on"
-            createImage(info)
-        }).catch((error) => {
-            console.log(error);
-            logs.server = "off"
-        })
+        // Gamedig.query({ type, host, port }).then((info) => {
+        //     logs.server = "on"
+        //     createImage(info)
+        // }).catch((error) => {
+        //     logs.server = "off"
+        // })
+
+        unirest.get("https://api.battlemetrics.com/servers/1631443")
+        .end(function (result) {
+            logs.server = result
+            createImage(result)
+        });
 
         function createImage(info) {
             registerFont('1.ttf', { family: 'customfont' })
@@ -42,7 +48,7 @@ function loop() {
                 ctx.font = '38px customfont'
                 ctx.fillStyle = 'rgb(51,48,48)'
 
-                const text = `${info.players.length}/${info.maxplayers}`
+                const text = `${info.players}/${info.maxPlayers}`
                 const box = ctx.measureText(text)
                 const left=image.width/2-Math.round(box.width/2)
                 const top=image.height/2-Math.round(box.emHeightAscent/2)
