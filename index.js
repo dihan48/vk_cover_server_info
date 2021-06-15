@@ -49,6 +49,8 @@ function loop() {
                 ctx.font = '38px customfont'
                 ctx.fillStyle = 'rgb(51,48,48)'
 
+                console.log(info.players,info.maxPlayers);
+
                 const text = `${info.players}/${info.maxPlayers}`
                 const box = ctx.measureText(text)
                 const left=image.width/2-Math.round(box.width/2)
