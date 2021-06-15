@@ -30,7 +30,7 @@ function loop() {
         //     logs.server = "off"
         // })
 
-        unirest.get("https://api.battlemetrics.com/servers/1631443")
+        unirest.get("https://api.battlemetrics.com/servers/2481126")
         .end(function (result) {
             logs.server = result
             createImage(result)
