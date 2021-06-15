@@ -33,9 +33,12 @@ function loop() {
         unirest.get("https://api.battlemetrics.com/servers/2481126")
         .end(function (result) {
             let json = JSON.parse(JSON.stringify(result.body));
-            if(result.status != 200) {return logs.server = "off"}
-            logs.server = json
-            createImage(json)
+            if(result.status != 200) {
+                logs.server = "off"
+            } else {
+                logs.server = [json.players,json.maxPlayers];
+                createImage(json)
+            }
         });
 
         function createImage(info) {
