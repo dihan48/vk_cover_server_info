@@ -36,8 +36,8 @@ function loop() {
             if(result.status != 200) {
                 logs.server = "off"
             } else {
-                logs.server = [json.attributes.players,json.attributes.maxPlayers];
-                createImage(json.attributes)
+                logs.server = [json.data.attributes.players,json.data.attributes.maxPlayers];
+                createImage(json.data.attributes)
             }
         });
 
