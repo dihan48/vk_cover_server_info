@@ -35,6 +35,7 @@ function loop() {
         .end(function (result) {
             let json = JSON.parse(JSON.stringify(result.body));
             logs.server = [json.data.attributes.players,json.data.attributes.maxPlayers];
+            console.log(json);
             createImage(json.data.attributes)
         });
 
