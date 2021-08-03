@@ -29,6 +29,7 @@ function loop() {
         // }).catch((error) => {
         //     logs.server = "off"
         // })
+        // toster lox
 
         unirest.get("https://api.battlemetrics.com/servers/2481126")
         .end(function (result) {
