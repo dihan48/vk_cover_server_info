@@ -2,7 +2,7 @@ const fs = require('fs')
 const http = require("http")
 const https = require('https')
 const FormData = require('form-data')
-const Gamedig = require('gamedig')
+// const Gamedig = require('gamedig')
 const unirest = require('unirest')
 const { registerFont, createCanvas, loadImage } = require('canvas')
 
@@ -31,7 +31,7 @@ function loop() {
         // })
         // toster lox
 
-        unirest.get("https://api.battlemetrics.com/servers/2481126")
+        unirest.get("http://api.battlemetrics.com/servers/2481126")
         .end(function (result) {
             let json = JSON.parse(JSON.stringify(result.body));
             logs.server = [json.data.attributes.players,json.data.attributes.maxPlayers];

@@ -9,9 +9,9 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "canvas": "^2.7.0",
+    "canvas": "^2.8.0",
     "form-data": "^4.0.0",
-    "unirest": "^0.6.0",
-    "gamedig": "^3.0.1"
+    "gamedig": "^3.0.1",
+    "unirest": "^0.6.0"
   }
 }
