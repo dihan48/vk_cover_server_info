@@ -2,7 +2,6 @@ const fs = require('fs')
 const http = require("http")
 const https = require('https')
 const FormData = require('form-data')
-// const Gamedig = require('gamedig')
 const unirest = require('unirest')
 const { registerFont, createCanvas, loadImage } = require('canvas')
 
@@ -22,14 +21,6 @@ function loop() {
         logs = { date: new Date().toLocaleString("ru", {timeZone: 'Europe/Moscow'}), server: "", img: "", upload: "", save: "" }
         const requestUploadUrl = () => `https://api.vk.com/method/photos.getOwnerCoverPhotoUploadServer?group_id=${group}&crop_x=0&crop_y=0&crop_x2=1590&crop_y2=400&v=5.50&access_token=${token}`
         const saveImageUrl = (data) => `https://api.vk.com/method/photos.saveOwnerCoverPhoto?hash=${data.hash}&photo=${data.photo}&v=5.50&access_token=${token}`
-
-        // Gamedig.query({ type, host, port }).then((info) => {
-        //     logs.server = "on"
-        //     createImage(info)
-        // }).catch((error) => {
-        //     logs.server = "off"
-        // })
-        // toster lox
 
         unirest.get("http://api.battlemetrics.com/servers/2481126")
         .end(function (result) {
