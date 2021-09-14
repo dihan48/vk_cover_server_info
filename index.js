@@ -7,6 +7,8 @@ const FormData = require('form-data')
 const unirest = require('unirest')
 const { registerFont, createCanvas, loadImage } = require('canvas')
 
+//Enviroment
+
 const group = process.env.vk_group,
     token = process.env.vk_token,
     host = process.env.game_host,
