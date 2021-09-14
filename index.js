@@ -16,6 +16,8 @@ const group = process.env.vk_group,
     port = process.env.query_port
 let logs = { date: "", server: "", img: "", upload: "", save: "" }
 
+//Http request
+
 http.createServer(function(request, response){
     response.end(`date: ${logs.date}\nserver: ${logs.server}\nimg: ${logs.img}\nupload: ${logs.upload}\nsave: ${logs.save}`)
 }).listen(3000)
